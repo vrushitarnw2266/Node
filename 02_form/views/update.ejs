@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 50px auto; padding: 20px; background-color: #f5f5f5; }
+        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { color: #333; text-align: center; margin-bottom: 30px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+        input[readonly] { background-color: #f8f9fa; color: #6c757d; }
+        .btn-group { display: flex; gap: 10px; justify-content: center; }
+        button { background: #28a745; color: white; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #218838; }
+        .cancel { background: #6c757d; color: white; padding: 12px 25px; text-decoration: none; border-radius: 4px; display: inline-block; text-align: center; }
+        .cancel:hover { background: #5a6268; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Student</h2>
+        <form action="/update-student/<%= student.name %>" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= student.name %>" readonly>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<%= student.email %>" required>
+            
+            <div class="btn-group">
+                <button type="submit">Update Student</button>
+                <a href="/" class="cancel">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
