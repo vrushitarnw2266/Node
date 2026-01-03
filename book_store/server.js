@@ -40,8 +40,7 @@ app.delete('/delete/:id', async (req, res) => {
 app.patch('/update/:id', async (req, res) => {
     try {
         const data = await Book.findByIdAndUpdate(
-            req.params.id,
-            req.body,
+            req.params.id,req.body,
             { new: true }
         );
         res.status(200).send({ message: "Book updated", data });
