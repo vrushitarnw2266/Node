@@ -4,6 +4,7 @@ const Book = require('./model/bookModel');
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // INSERT
 app.post('/insert', async (req, res) => {
@@ -25,6 +26,21 @@ app.get('/get', async (req, res) => {
         res.status(500).send({ message: error.message });
     }
 });
+// GET BY ID
+app.get('/get/:id', async (req, res) => {
+    try {
+        const data = await Book.findById(req.params.id);
+
+        if (!data) {
+            return res.status(404).send({ message: "Book not found" });
+        }
+
+        res.status(200).send(data);
+
+    } catch (error) {
+        res.status(400).send({ message: "Invalid ID" });
+    }
+});
 
 // DELETE
 app.delete('/delete/:id', async (req, res) => {
@@ -44,6 +60,7 @@ app.patch('/update/:id', async (req, res) => {
             { new: true }
         );
         res.status(200).send({ message: "Book updated", data });
+        console.log("dixit",req.body);
     } catch (error) {
         res.status(500).send({ message: error.message });
     }
