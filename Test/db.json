@@ -1,0 +1,37 @@
+{
+  "records": [
+    {
+      "id": "1",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "phone": "1234567890",
+      "image": "https://i.pravatar.cc/150?img=1",
+      "status": false
+    },
+    {
+      "id": "2",
+      "name": "Bob Smith",
+      "email": "bob@example.com",
+      "phone": "0987654321",
+      "image": "https://i.pravatar.cc/150?img=2",
+      "status": false
+    },
+    {
+      "id": "1246",
+      "name": "vrushita",
+      "email": "vrushita2366@gmail.com",
+      "phone": "8128972959",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmvwdYPvSn-fd4unnIn1N-hSmHfbInj62U5Q&s",
+      "status": true
+    },
+    {
+      "id": "f25c",
+      "name": "tiger shroff",
+      "email": "bob@example.cominvalid-email",
+      "phone": "2323232323",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Tiger_Shroff_in_2019.jpg/250px-Tiger_Shroff_in_2019.jpg",
+      "status": true
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
