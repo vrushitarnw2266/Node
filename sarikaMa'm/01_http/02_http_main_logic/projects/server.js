@@ -42,10 +42,8 @@ const server = http.createServer((req, res) => {
         filePath = path.join(__dirname, 'index.html');
     } else if (req.url === '/about') {
         filePath = path.join(__dirname, 'about.html');
-    } else if (req.url.endsWith('.css')) {
-        filePath = path.join(__dirname, req.url);
-        contentType = 'text/css';
-    } else {
+    } 
+     else {
         filePath = path.join(__dirname, '404.html');
     }
 
@@ -69,5 +67,5 @@ const server = http.createServer((req, res) => {
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
-});
+}); 
 
