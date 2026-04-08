@@ -1,0 +1,22 @@
+{
+  "name": "02_http_main_logic",
+  "version": "1.0.0",
+  "description": "a way of creating server with logic",
+  "keywords": [
+    "Vrushita's",
+    "server"
+  ],
+  "license": "ISC",
+  "author": "vrushita panchal",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node projects/server.js",
+    "dev": "nodemon projects/server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
