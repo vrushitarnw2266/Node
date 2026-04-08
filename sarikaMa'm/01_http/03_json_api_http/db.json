@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "isAdmin": true
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "isAdmin": false
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "isAdmin": false
+    },
+    {
+      "id": 4,
+      "name": "Alice Williams",
+      "isAdmin": true
+    }
+  ]
+}
