@@ -1,0 +1,218 @@
+/* Premium Dark Theme */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+a {
+    color: #bb86fc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #3700b3;
+}
+
+/* Add/Edit Button styling (the a tags at top/bottom) */
+body > a {
+    display: inline-block;
+    background-color: #bb86fc;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+body > a:hover {
+    background-color: #3700b3;
+    color: #fff;
+}
+
+/* List / Grid */
+ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Card Styling - Image at Top, Content Below */
+li {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; 
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+}
+
+/* Image inside list item */
+li img {
+    order: -1; /* Dynamically pushes the image to the top of the flex container! */
+    width: 100%;
+    height: 220px;
+    max-width: 100% !important; /* override inline style */
+    object-fit: cover;
+    margin-bottom: 15px; /* Spacing below the image, above the content */
+    border-bottom: 1px solid #333;
+}
+
+/* Content specifics */
+li > strong {
+    font-size: 1.5rem;
+    color: #bb86fc;
+    margin: 5px 20px 10px 20px;
+}
+
+li > p {
+    margin: 0 20px 10px 20px;
+    color: #cccccc;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Specific styling for Email to differentiate it */
+li > p:last-of-type {
+    margin-top: auto; /* Pushes email and actions to the bottom if description is short */
+    background-color: #2a2a2a;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #999;
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+
+/* Layout for Edit & Delete buttons nicely together */
+li > a {
+    margin: 0 20px 10px 20px;
+    color: #03dac6;
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #03dac6;
+    border-radius: 4px;
+    text-align: center;
+}
+
+li > a:hover {
+    background-color: #03dac6;
+    color: #000;
+}
+
+li > form {
+    margin: 0 20px 20px 20px;
+}
+
+li > form button {
+    width: 100%;
+    background-color: transparent;
+    color: #cf6679;
+    border: 1px solid #cf6679;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+li > form button:hover {
+    background-color: #cf6679;
+    color: #121212;
+}
+
+/* Forms (Add/Edit) */
+form:not(li form) {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form:not(li form) label {
+    font-weight: bold;
+    color: #bb86fc;
+    margin-top: 10px;
+}
+
+form:not(li form) input[type="text"],
+form:not(li form) input[type="email"],
+form:not(li form) input[type="password"],
+form:not(li form) input[type="file"],
+form:not(li form) textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #fff;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+form:not(li form) input:focus,
+form:not(li form) textarea:focus {
+    outline: none;
+    border-color: #bb86fc;
+    box-shadow: 0 0 5px rgba(187, 134, 252, 0.5);
+}
+
+form:not(li form) textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+form:not(li form) button[type="submit"] {
+    background-color: #03dac6;
+    color: #000;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+form:not(li form) button[type="submit"]:hover {
+    background-color: #018786;
+    color: #fff;
+}
+
+/* Adjust old structure formatting like <br> */
+form br {
+    display: none;
+}

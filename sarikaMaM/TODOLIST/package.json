@@ -1,0 +1,30 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "it's a todo-list ",
+  "keywords": [
+    "js",
+    "mongoose",
+    "express",
+    "helmet",
+    "nodemon"
+  ],
+  "license": "ISC",
+  "author": "vrushita panchal",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "mongoose": "^9.5.0",
+    "multer": "^2.1.1",
+    "nodemon": "^3.1.14"
+  }
+}

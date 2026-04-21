@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style><%- include('style.css') %></style>
+</head>
+
+<body>
+    <h2>Todo List</h2>
+    <a href="/add">Add New Todo</a>
+    <ul>
+        <% todos.forEach(todo=> { %>
+            <li>
+                <strong>
+                    <%= todo.name %>
+                </strong>
+                <p>
+                    <%= todo.description %>
+                </p>
+                <% if (todo.image) { %>
+                    <img src="/uploads/<%= todo.image %>" alt="Todo Image" style="max-width: 200px;">
+                    <% } %>
+                        <p>Email: <%= todo.email %>
+                        </p>
+                        <a href="/<%= todo._id %>/edit">Edit</a>
+                        <form action="/<%= todo._id %>/delete" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>
