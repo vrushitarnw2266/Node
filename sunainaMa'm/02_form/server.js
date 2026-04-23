@@ -5,7 +5,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded());
 
 let students = [
-        {name: 'Alice', email: 'alice@example.com'},
+    {name: 'Alice', email: 'alice@example.com'},
     {name: 'Bob', email: 'bob@example.com'},
     {name: 'Charlie', email: 'charlie@example.com'},
     {name: 'David', email: 'david@example.com'}
