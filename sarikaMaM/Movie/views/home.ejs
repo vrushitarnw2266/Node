@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie App - Home</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Movie App</h1>
+            <nav>
+                <% if (typeof user !== 'undefined' && user) { %>
+                    <span>Welcome, <%= user.fullname %></span>
+                    <a href="/add-movie">Add Movie</a>
+                    <a href="/logout">Logout</a>
+                <% } else { %>
+                    <a href="/login">Login</a>
+                    <a href="/signup">Signup</a>
+                <% } %>
+            </nav>
+        </header>
+
+        <main>
+            <h2>All Movies</h2>
+            <div class="movie-list">
+                <% if (typeof movies !== 'undefined' && movies.length > 0) { %>
+                    <% movies.forEach(movie => { %>
+                        <div class="movie-item">
+                            <div class="movie-poster-container">
+                                <img src="<%= movie.posterUrl || 'https://via.placeholder.com/150' %>" alt="<%= movie.title %>">
+                            </div>
+                            <div class="movie-content">
+                                <h3><%= movie.title %></h3>
+                                <p><%= movie.description %></p>
+                                <span class="rating-badge">Rating: <%= movie.rating %></span>
+                            </div>
+                            <div class="movie-actions">
+                                <a href="/edit-movie/<%= movie._id %>" class="btn btn-edit">Edit</a>
+                                <a href="/api/movies/delete/<%= movie._id %>" class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>No movies found.</p>
+                <% } %>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

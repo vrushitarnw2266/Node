@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Grocery</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Edit Grocery</h1>
+
+    <form action="/users/edit/<%= grocery._id %>" method="POST">
+      <input type="text" name="name" value="<%= grocery.name %>" required>
+      <input type="text" name="category" value="<%= grocery.category %>" required>
+      <input type="number" name="price" value="<%= grocery.price %>" required>
+      <input type="number" name="quantity" value="<%= grocery.quantity %>" required>
+      <button type="submit">Update Grocery</button>
+    </form>
+
+    <br>
+    <a href="/users">Back to List</a>
+  </div>
+
+</body>
+</html>

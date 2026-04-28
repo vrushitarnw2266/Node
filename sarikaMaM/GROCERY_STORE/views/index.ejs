@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grocery Store</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Grocery Store</h1>
+
+    <a href="/users/add" class="btn-primary">Add Grocery</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% groceries.forEach(item => { %>
+          <tr>
+            <td><%= item.name %></td>
+            <select name="category">
+              <option value="Fruits">Produce</option>
+              <option value="Vegetables">Pantry/Dry Goods</option>
+              <option value="Dairy">Frozen Foods</option>
+              <option value="Bakery">Bakery & Breakfast</option>
+              <option value="Bakery">Beverages</option>
+              <option value="Bakery">Snacks & Sweets</option>
+              <option value="Bakery">Household & Personal Care</option>
+            </select>
+            <td>$<%= item.price %></td>
+            <td><%= item.quantity %></td>
+            <td>
+              <a href="/users/edit/<%= item._id %>">Edit</a>
+
+              <form action="/users/delete/<%= item._id %>" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

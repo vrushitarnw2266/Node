@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie App - Edit Movie</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Edit Movie</h2>
+        <form action="/api/movies/update/<%= movie._id %>" method="POST">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" name="title" value="<%= movie.title %>" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" name="description" value="<%= movie.description %>">
+            </div>
+            <div class="form-group">
+                <label>Year</label>
+                <input type="number" name="year" value="<%= movie.year %>">
+            </div>
+            <div class="form-group">
+                <label>Genre</label>
+                <select name="genre" required>
+                    <% const genres = ['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi', 'Romance', 'Thriller', 'Animation', 'Documentary']; %>
+                    <% genres.forEach(g => { %>
+                        <option value="<%= g %>" <%= (movie.genre && movie.genre.includes(g)) ? 'selected' : '' %>><%= g %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Rating</label>
+                <input type="number" name="rating" value="<%= movie.rating %>" step="0.1">
+            </div>
+            <div class="form-group">
+                <label>Poster Image URL</label>
+                <input type="text" name="posterUrl" value="<%= movie.posterUrl %>">
+            </div>
+            <button type="submit">Update Movie</button>
+        </form>
+        <p><a href="/">Back to Home</a></p>
+    </div>
+</body>
+</html>
