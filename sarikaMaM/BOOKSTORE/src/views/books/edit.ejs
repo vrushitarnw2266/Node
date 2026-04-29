@@ -1,0 +1,32 @@
+<%- include("../partials/header") %>
+
+<h2>Edit Book</h2>
+
+<form action="/books/<%= book._id %>/edit" method="POST" class="form">
+  <label>Title</label>
+  <input type="text" name="title" value="<%= book.title %>" required />
+
+  <label>Author</label>
+  <input type="text" name="author" value="<%= book.author %>" required />
+
+  <label>Price</label>
+  <input type="number" name="price" value="<%= book.price %>" required />
+
+  <label>Genre</label>
+  <input type="text" name="genre" value="<%= book.genre %>" required />
+
+  <label>Published Year</label>
+  <input type="number" name="publishedYear" value="<%= book.publishedYear %>" required />
+
+  <label>Description</label>
+  <textarea name="description"><%= book.description %></textarea>
+
+  <label class="checkbox">
+    <input type="checkbox" name="inStock" <%= book.inStock ? "checked" : "" %> />
+    In Stock
+  </label>
+
+  <button type="submit" class="btn">Update Book</button>
+</form>
+
+<%- include("../partials/footer") %>

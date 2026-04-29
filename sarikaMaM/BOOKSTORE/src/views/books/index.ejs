@@ -1,0 +1,40 @@
+<%- include("../partials/header") %>
+
+<div class="page-header">
+  <h2>All Books</h2>
+  <a href="/books/create" class="btn">+ Add New Book</a>
+</div>
+
+<% if (books.length === 0) { %>
+  <p class="empty">No books found. Please add your first book.</p>
+<% } else { %>
+  <div class="book-grid">
+    <% books.forEach(book => { %>
+      <div class="book-card">
+        <h3><%= book.title %></h3>
+        <p><strong>Author:</strong> <%= book.author %></p>
+        <p><strong>Genre:</strong> <%= book.genre %></p>
+        <p><strong>Price:</strong> ₹<%= book.price %></p>
+        <p><strong>Year:</strong> <%= book.publishedYear %></p>
+        <p>
+          <strong>Status:</strong>
+          <%= book.inStock ? "In Stock" : "Out of Stock" %>
+        </p>
+
+        <% if (book.description) { %>
+          <p class="desc"><%= book.description %></p>
+        <% } %>
+
+        <div class="actions">
+          <a href="/books/<%= book._id %>/edit" class="edit-btn">Edit</a>
+
+          <form action="/books/<%= book._id %>/delete" method="POST">
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
+
+<%- include("../partials/footer") %>
