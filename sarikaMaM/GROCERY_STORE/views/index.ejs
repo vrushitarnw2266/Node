@@ -25,15 +25,7 @@
         <% groceries.forEach(item => { %>
           <tr>
             <td><%= item.name %></td>
-            <select name="category">
-              <option value="Fruits">Produce</option>
-              <option value="Vegetables">Pantry/Dry Goods</option>
-              <option value="Dairy">Frozen Foods</option>
-              <option value="Bakery">Bakery & Breakfast</option>
-              <option value="Bakery">Beverages</option>
-              <option value="Bakery">Snacks & Sweets</option>
-              <option value="Bakery">Household & Personal Care</option>
-            </select>
+            <td><%= item.category %></td>
             <td>$<%= item.price %></td>
             <td><%= item.quantity %></td>
             <td>
