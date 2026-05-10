@@ -1,0 +1,38 @@
+<%- include("../header") %>
+
+<section class="admin-dashboard">
+  <h1>Admin Dashboard</h1>
+
+  <div class="stats">
+    <div class="stat-card">
+      <h2><%= totalUsers %></h2>
+      <p>Total Users</p>
+    </div>
+
+    <div class="stat-card">
+      <h2><%= totalBlogs %></h2>
+      <p>Total Blogs</p>
+    </div>
+
+    <div class="stat-card">
+      <h2><%= totalComments %></h2>
+      <p>Total Comments</p>
+    </div>
+  </div>
+
+  <h2>Reported Blogs</h2>
+
+  <% if (reportedBlogs.length > 0) { %>
+    <% reportedBlogs.forEach(blog => { %>
+      <div class="reported-blog">
+        <h3><%= blog.title %></h3>
+        <p>Author: <%= blog.author ? blog.author.name : "Unknown" %></p>
+        <a href="/blogs/<%= blog.slug %>">View Blog</a>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>No reported blogs.</p>
+  <% } %>
+</section>
+
+<%- include("../footer") %>

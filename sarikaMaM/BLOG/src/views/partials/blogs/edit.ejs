@@ -1,0 +1,34 @@
+<%- include("../header") %>
+
+<div class="form-box large">
+  <h1>Edit Blog</h1>
+
+  <form action="/blogs/<%= blog._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" value="<%= blog.title %>" required />
+
+    <select name="category" required>
+      <option value="Technology" <%= blog.category === "Technology" ? "selected" : "" %>>Technology</option>
+      <option value="Education" <%= blog.category === "Education" ? "selected" : "" %>>Education</option>
+      <option value="Lifestyle" <%= blog.category === "Lifestyle" ? "selected" : "" %>>Lifestyle</option>
+      <option value="Travel" <%= blog.category === "Travel" ? "selected" : "" %>>Travel</option>
+    </select>
+
+    <select name="status">
+      <option value="published" <%= blog.status === "published" ? "selected" : "" %>>Published</option>
+      <option value="draft" <%= blog.status === "draft" ? "selected" : "" %>>Draft</option>
+      <option value="archived" <%= blog.status === "archived" ? "selected" : "" %>>Archived</option>
+    </select>
+
+    <input type="file" name="image" />
+
+    <% if (blog.image) { %>
+      <img src="<%= blog.image %>" class="preview-img" />
+    <% } %>
+
+    <textarea name="content" rows="8" required><%= blog.content %></textarea>
+
+    <button type="submit">Update Blog</button>
+  </form>
+</div>
+
+<%- include("../footer") %>

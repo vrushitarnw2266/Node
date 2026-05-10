@@ -1,0 +1,84 @@
+<%- include("../header") %>
+
+<section class="hero">
+  <h1>Welcome to Blogify</h1>
+  <p>Create, read, like, comment and explore blogs.</p>
+</section>
+
+<form class="filter-form" action="/" method="GET">
+  <input 
+    type="text" 
+    name="search" 
+    placeholder="Search blog..." 
+    value="<%= search || '' %>"
+  />
+
+  <select name="category">
+    <option value="">All Categories</option>
+    <option value="Technology" <%= category === "Technology" ? "selected" : "" %>>Technology</option>
+    <option value="Education" <%= category === "Education" ? "selected" : "" %>>Education</option>
+    <option value="Lifestyle" <%= category === "Lifestyle" ? "selected" : "" %>>Lifestyle</option>
+    <option value="Travel" <%= category === "Travel" ? "selected" : "" %>>Travel</option>
+  </select>
+
+  <button type="submit">Filter</button>
+</form>
+
+<div class="blog-grid">
+  <% if (blogs.length > 0) { %>
+    <% blogs.forEach(blog => { %>
+      <div class="blog-card">
+
+        <% if (blog.image) { %>
+          <img src="<%= blog.image %>" alt="<%= blog.title %>" />
+        <% } else { %>
+          <div class="no-image">No Image</div>
+        <% } %>
+
+        <div class="blog-content">
+          <span class="category"><%= blog.category %></span>
+
+          <h2>
+            <a href="/blogs/<%= blog.slug %>"><%= blog.title %></a>
+          </h2>
+
+          <p><%= blog.content.substring(0, 120) %>...</p>
+
+          <div class="meta">
+            <small>By <%= blog.author ? blog.author.name : "Unknown" %></small>
+            <small>Views: <%= blog.views %></small>
+          </div>
+
+          <div class="actions">
+            <form action="/blogs/<%= blog._id %>/like" method="POST">
+              <button type="submit">❤ <%= blog.likes.length %></button>
+            </form>
+
+            <% if (user && blog.author && blog.author._id.toString() === user._id.toString()) { %>
+              <a href="/blogs/edit/<%= blog._id %>">Edit</a>
+
+              <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="delete-btn">Delete</button>
+              </form>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>No blogs found.</p>
+  <% } %>
+</div>
+
+<div class="pagination">
+  <% for (let i = 1; i <= totalPages; i++) { %>
+    <a 
+      class="<%= currentPage === i ? 'active-page' : '' %>" 
+      href="/?page=<%= i %>&search=<%= search || '' %>&category=<%= category || '' %>"
+    >
+      <%= i %>
+    </a>
+  <% } %>
+</div>
+
+<%- include("../footer") %>

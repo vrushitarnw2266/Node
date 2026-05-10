@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blog Project</title>
+
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <a href="/">Blogify</a>
+  </div>
+
+  <div class="nav-links">
+    <a href="/">Home</a>
+
+    <% if (user) { %>
+      <a href="/blogs/create">Create Blog</a>
+
+      <% if (user.role === "admin") { %>
+        <a href="/admin/dashboard">Admin</a>
+      <% } %>
+
+      <span>Hello, <%= user.name %></span>
+      <a href="/auth/logout" class="btn-danger">Logout</a>
+    <% } else { %>
+      <a href="/auth/login">Login</a>
+      <a href="/auth/register">Register</a>
+    <% } %>
+  </div>
+</nav>
+
+<main class="container">

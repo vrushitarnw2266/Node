@@ -1,0 +1,78 @@
+<% include("../header") %>
+
+<article class="single-blog">
+
+  <% if (blog.image) { %>
+    <img src="<%= blog.image %>" class="single-img" />
+  <% } %>
+
+  <span class="category"><%= blog.category %></span>
+
+  <h1><%= blog.title %></h1>
+
+  <div class="meta">
+    <p>Author: <%= blog.author ? blog.author.name : "Unknown" %></p>
+    <p>Views: <%= blog.views %></p>
+    <p>Likes: <%= blog.likes.length %></p>
+  </div>
+
+  <p class="blog-text"><%= blog.content %></p>
+
+  <div class="single-actions">
+    <% if (user) { %>
+      <form action="/blogs/<%= blog._id %>/like" method="POST">
+        <button type="submit">Like / Unlike</button>
+      </form>
+
+      <form action="/blogs/<%= blog._id %>/save" method="POST">
+        <button type="submit">Save Blog</button>
+      </form>
+
+      <form action="/blogs/<%= blog._id %>/report" method="POST">
+        <button type="submit" class="danger">Report Blog</button>
+      </form>
+    <% } %>
+
+    <% if (user && blog.author && (blog.author._id.toString() === user._id.toString() || user.role === "admin")) { %>
+      <a href="/blogs/edit/<%= blog._id %>">Edit Blog</a>
+
+      <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="danger">Delete Blog</button>
+      </form>
+    <% } %>
+  </div>
+</article>
+
+<section class="comments">
+  <h2>Comments</h2>
+
+  <% if (user) { %>
+    <form action="/comments/<%= blog._id %>" method="POST" class="comment-form">
+      <textarea name="text" rows="3" placeholder="Write your comment..." required></textarea>
+      <button type="submit">Add Comment</button>
+    </form>
+  <% } else { %>
+    <p>Please <a href="/auth/login">login</a> to comment.</p>
+  <% } %>
+
+  <div class="comment-list">
+    <% if (comments.length > 0) { %>
+      <% comments.forEach(comment => { %>
+        <div class="comment-box">
+          <p><strong><%= comment.user ? comment.user.name : "Unknown" %></strong></p>
+          <p><%= comment.text %></p>
+
+          <% if (user && (comment.user._id.toString() === user._id.toString() || user.role === "admin")) { %>
+            <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+              <button type="submit" class="delete-btn">Delete</button>
+            </form>
+          <% } %>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No comments yet.</p>
+    <% } %>
+  </div>
+</section>
+
+<%- include("../footer") %>
