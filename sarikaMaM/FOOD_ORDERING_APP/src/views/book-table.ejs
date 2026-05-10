@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+
+<section class="page-header">
+    <h1>Book a Table</h1>
+    <p>Reserve your spot for an unforgettable experience.</p>
+</section>
+
+<section class="content-section">
+    <div class="layout-grid">
+        <div class="form-container">
+            <h3>Make a Reservation</h3>
+            <% if (error) { %> <div class="alert alert-error"><%= error %></div> <% } %>
+            <% if (success) { %> <div class="alert alert-success"><%= success %></div> <% } %>
+            
+            <form action="/book" method="POST" class="custom-form">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label>Number of Guests</label>
+                    <input type="number" name="guests" min="1" max="20" value="2" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+            </form>
+        </div>
+
+        <div class="history-container">
+            <h3>Your Reservations</h3>
+            <% if (bookings && bookings.length > 0) { %>
+                <ul class="item-list">
+                    <% bookings.forEach(booking => { %>
+                        <li class="item-card">
+                            <div class="item-info">
+                                <strong><%= new Date(booking.date).toLocaleDateString() %> at <%= booking.time %></strong>
+                                <span>Guests: <%= booking.guests %></span>
+                                <span>Status: <span class="badge <%= booking.status.toLowerCase() %>"><%= booking.status %></span></span>
+                            </div>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>You have no upcoming reservations.</p>
+            <% } %>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor - Premium Food Ordering</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <%- include('preloader') %>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="/">🍕 Savor</a>
+        </div>
+        <nav class="nav-links">
+            <a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a>
+            <a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a>
+            <a href="/services" class="<%= page === 'services' ? 'active' : '' %>">Services</a>
+            <a href="/contact" class="<%= page === 'contact' ? 'active' : '' %>">Contact</a>
+            
+            <% if (user) { %>
+                <a href="/order" class="<%= page === 'order' ? 'active' : '' %>">Order Food</a>
+                <a href="/book" class="<%= page === 'book-table' ? 'active' : '' %>">Book Table</a>
+                <a href="/auth/logout" class="btn btn-outline">Logout (<%= user.name %>)</a>
+            <% } else { %>
+                <a href="/login" class="btn btn-outline <%= page === 'login' ? 'active' : '' %>">Login</a>
+                <a href="/register" class="btn btn-primary <%= page === 'register' ? 'active' : '' %>">Register</a>
+            <% } %>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <main>
