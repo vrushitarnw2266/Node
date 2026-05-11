@@ -1,25 +1,60 @@
 <%- include('partials/header') %>
 
 <section class="page-header">
-    <h1>Our Services</h1>
-    <p>Catering to all your dining needs.</p>
+    <div class="container">
+        <h1>Our Premium Services</h1>
+        <p>Beyond just food - we provide a complete culinary experience.</p>
+    </div>
 </section>
 
 <section class="content-section">
     <div class="card-grid">
         <div class="card">
-            <h3>Dine-In</h3>
-            <p>Enjoy a luxurious ambiance with top-tier service at our restaurant. <a href="/book">Book your table now</a>.</p>
+            <div class="card-icon">🪑</div>
+            <h3>Luxurious Dine-In</h3>
+            <p>Experience our premium ambiance and exceptional table service. Perfect for family dinners and romantic dates.</p>
+            <a href="/book" class="btn btn-outline btn-sm" style="margin-top: 1rem;">Book a Table</a>
         </div>
         <div class="card">
-            <h3>Takeaway & Delivery</h3>
-            <p>Hot, fresh food delivered straight to your door. <a href="/order">Order online</a>.</p>
+            <div class="card-icon">🚚</div>
+            <h3>Express Delivery</h3>
+            <p>Hot and fresh meals delivered straight to your doorstep within minutes. Real-time tracking included.</p>
+            <a href="/order" class="btn btn-primary btn-sm" style="margin-top: 1rem;">Order Now</a>
         </div>
         <div class="card">
+            <div class="card-icon">🎭</div>
             <h3>Event Catering</h3>
-            <p>Make your special occasions memorable with our customized catering menus.</p>
+            <p>From corporate lunches to wedding receptions, we provide customized vegetarian menus for any occasion.</p>
+            <a href="/contact" class="btn btn-outline btn-sm" style="margin-top: 1rem;">Enquire Now</a>
+        </div>
+    </div>
+</section>
+
+<section class="content-section" style="background: rgba(255, 255, 255, 0.02); text-align: center;">
+    <h2 style="margin-bottom: 3rem;">How Savor Works</h2>
+    <div class="steps-container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+        <div class="step" style="max-width: 250px;">
+            <div class="step-number" style="font-size: 3rem; color: var(--primary-color); font-weight: 800; margin-bottom: 1rem;">01</div>
+            <h3>Choose Dish</h3>
+            <p>Select your favorite vegetarian items from our vast menu.</p>
+        </div>
+        <div class="step" style="max-width: 250px;">
+            <div class="step-number" style="font-size: 3rem; color: var(--primary-color); font-weight: 800; margin-bottom: 1rem;">02</div>
+            <h3>Place Order</h3>
+            <p>Provide your details and confirm your order in seconds.</p>
+        </div>
+        <div class="step" style="max-width: 250px;">
+            <div class="step-number" style="font-size: 3rem; color: var(--primary-color); font-weight: 800; margin-bottom: 1rem;">03</div>
+            <h3>Wait for Delivery</h3>
+            <p>Our kitchen prepares your meal and our riders deliver it hot.</p>
+        </div>
+        <div class="step" style="max-width: 250px;">
+            <div class="step-number" style="font-size: 3rem; color: var(--primary-color); font-weight: 800; margin-bottom: 1rem;">04</div>
+            <h3>Enjoy Your Meal</h3>
+            <p>Savor the delicious flavors from the comfort of your home.</p>
         </div>
     </div>
 </section>
 
 <%- include('partials/footer') %>
+

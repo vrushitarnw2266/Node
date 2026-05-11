@@ -6,7 +6,8 @@ const {
     renderServices, 
     renderContact, 
     renderLogin, 
-    renderRegister 
+    renderRegister,
+    renderMenuCategory 
 } = require('../controllers/pageController');
 
 router.get('/', renderHome);
@@ -15,5 +16,7 @@ router.get('/services', renderServices);
 router.get('/contact', renderContact);
 router.get('/login', renderLogin);
 router.get('/register', renderRegister);
+router.get('/menu/:category', renderMenuCategory);
+
 
 module.exports = router;

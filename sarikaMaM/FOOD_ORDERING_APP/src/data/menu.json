@@ -1,0 +1,92 @@
+{
+  "pizza": [
+    { "id": "p1", "name": "Margherita", "description": "Classic tomato sauce, fresh mozzarella, and basil.", "price": 299, "icon": "🍕" },
+    { "id": "p2", "name": "Farmhouse", "description": "Delightful combination of onion, capsicum, tomato & grilled mushroom.", "price": 349, "icon": "🍕" },
+    { "id": "p3", "name": "Veggie Supreme", "description": "Black olives, onion, capsicum, mushroom, corn & tomato.", "price": 399, "icon": "🍕" },
+    { "id": "p4", "name": "Paneer Makhani", "description": "Paneer, onion, capsicum with makhani sauce.", "price": 379, "icon": "🍕" },
+    { "id": "p5", "name": "Cheese Burst Pizza", "description": "Loaded with extra cheese and creamy cheese burst base.", "price": 429, "icon": "🍕" },
+    { "id": "p6", "name": "Mexican Green Wave", "description": "Capsicum, onion, jalapeno, corn and spicy Mexican herbs.", "price": 389, "icon": "🍕" },
+    { "id": "p7", "name": "Tandoori Paneer Pizza", "description": "Tandoori paneer cubes with onion, capsicum and spicy sauce.", "price": 449, "icon": "🍕" },
+    { "id": "p8", "name": "Corn Cheese Pizza", "description": "Sweet corn and melted cheese on a soft pizza base.", "price": 329, "icon": "🍕" }
+  ],
+  "burger": [
+    { "id": "b1", "name": "Aloo Tikki Burger", "description": "Crispy potato patty with onion, tomato and special sauce.", "price": 99, "icon": "🍔" },
+    { "id": "b2", "name": "Veg Maharaja Mac", "description": "Double decker burger with corn & cheese patty.", "price": 199, "icon": "🍔" },
+    { "id": "b3", "name": "Cheese Lava Burger", "description": "Cheese filled veg patty with liquid cheese sauce.", "price": 149, "icon": "🍔" },
+    { "id": "b4", "name": "Paneer Burger", "description": "Crispy paneer patty with creamy dressing.", "price": 129, "icon": "🍔" },
+    { "id": "b5", "name": "Mexican Burger", "description": "Spicy Mexican patty with salsa, lettuce and cheese.", "price": 169, "icon": "🍔" },
+    { "id": "b6", "name": "Crispy Veg Burger", "description": "Crunchy vegetable patty with mayo and fresh veggies.", "price": 119, "icon": "🍔" },
+    { "id": "b7", "name": "Tandoori Burger", "description": "Tandoori flavored veg patty with spicy mint mayo.", "price": 159, "icon": "🍔" },
+    { "id": "b8", "name": "Double Cheese Burger", "description": "Double cheese slice with soft bun and creamy sauce.", "price": 189, "icon": "🍔" }
+  ],
+  "sushi": [
+    { "id": "s1", "name": "California Veg Roll", "description": "Cucumber, avocado and pickled radish.", "price": 449, "icon": "🍣" },
+    { "id": "s2", "name": "Kappa Maki", "description": "Simple and fresh cucumber roll.", "price": 299, "icon": "🍣" },
+    { "id": "s3", "name": "Asparagus Tempura Roll", "description": "Crispy asparagus with spicy mayo.", "price": 499, "icon": "🍣" },
+    { "id": "s4", "name": "Avocado Nigiri", "description": "Fresh avocado slices over seasoned rice.", "price": 349, "icon": "🍣" },
+    { "id": "s5", "name": "Mango Avocado Roll", "description": "Sweet mango and creamy avocado wrapped with sushi rice.", "price": 429, "icon": "🍣" },
+    { "id": "s6", "name": "Tofu Teriyaki Roll", "description": "Soft tofu with teriyaki glaze and fresh vegetables.", "price": 459, "icon": "🍣" },
+    { "id": "s7", "name": "Spicy Veg Sushi", "description": "Vegetable sushi roll with spicy mayo and sesame topping.", "price": 399, "icon": "🍣" },
+    { "id": "s8", "name": "Tempura Veg Roll", "description": "Crispy tempura vegetables rolled with rice and nori.", "price": 489, "icon": "🍣" }
+  ],
+  "punjabi": [
+    { "id": "pn1", "name": "Paneer Butter Masala", "description": "Cottage cheese in rich tomato and butter gravy.", "price": 249, "icon": "🥘" },
+    { "id": "pn2", "name": "Dal Makhani", "description": "Black lentils cooked overnight with cream and butter.", "price": 199, "icon": "🥣" },
+    { "id": "pn3", "name": "Chole Bhature", "description": "Spicy chickpeas served with fluffy deep fried bread.", "price": 149, "icon": "🥯" },
+    { "id": "pn4", "name": "Malai Kofta", "description": "Potato and paneer balls in a creamy cashew gravy.", "price": 279, "icon": "🍲" },
+    { "id": "pn5", "name": "Kadai Paneer", "description": "Paneer cooked with capsicum, onion and spicy kadai masala.", "price": 259, "icon": "🥘" },
+    { "id": "pn6", "name": "Rajma Chawal", "description": "Red kidney beans curry served with steamed rice.", "price": 179, "icon": "🍛" },
+    { "id": "pn7", "name": "Amritsari Kulcha", "description": "Stuffed kulcha served with chole and chutney.", "price": 199, "icon": "🫓" },
+    { "id": "pn8", "name": "Veg Handi", "description": "Mixed vegetables cooked in creamy handi-style gravy.", "price": 239, "icon": "🍲" }
+  ],
+  "tacos": [
+    { "id": "t1", "name": "Paneer Tikka Tacos", "description": "Fusion tacos with grilled paneer and mint chutney.", "price": 179, "icon": "🌮" },
+    { "id": "t2", "name": "Bean & Cheese Tacos", "description": "Classic Mexican style beans with melted cheese.", "price": 129, "icon": "🌮" },
+    { "id": "t3", "name": "Crispy Corn Tacos", "description": "Sweet corn with spicy salsa in hard shell.", "price": 149, "icon": "🌮" },
+    { "id": "t4", "name": "Guacamole Tacos", "description": "Fresh guacamole with peppers and onions.", "price": 199, "icon": "🌮" },
+    { "id": "t5", "name": "Mexican Salsa Tacos", "description": "Crunchy tacos filled with fresh salsa and veggies.", "price": 159, "icon": "🌮" },
+    { "id": "t6", "name": "Cheesy Veg Tacos", "description": "Loaded with melted cheese, lettuce and spicy sauce.", "price": 169, "icon": "🌮" },
+    { "id": "t7", "name": "Peri Peri Tacos", "description": "Spicy peri peri vegetables inside crispy taco shells.", "price": 189, "icon": "🌮" },
+    { "id": "t8", "name": "Nacho Crunch Tacos", "description": "Tacos filled with nachos, beans, cheese and salsa.", "price": 199, "icon": "🌮" }
+  ],
+  "lasagnita": [
+    { "id": "l1", "name": "Veggie Lasagnita", "description": "Layers of pasta with seasonal vegetables and cheese.", "price": 349, "icon": "🍝" },
+    { "id": "l2", "name": "Spinach & Ricotta", "description": "Creamy spinach and ricotta cheese filling.", "price": 379, "icon": "🍝" },
+    { "id": "l3", "name": "Mushroom Lasagnita", "description": "Earthy mushrooms with white bechamel sauce.", "price": 399, "icon": "🍝" },
+    { "id": "l4", "name": "Four Cheese Lasagnita", "description": "Mozzarella, Cheddar, Parmesan, and Ricotta.", "price": 429, "icon": "🍝" },
+    { "id": "l5", "name": "Paneer Lasagnita", "description": "Soft paneer cubes layered with pasta and rich sauce.", "price": 399, "icon": "🍝" },
+    { "id": "l6", "name": "Corn Cheese Lasagnita", "description": "Sweet corn and cheese baked between pasta layers.", "price": 369, "icon": "🍝" },
+    { "id": "l7", "name": "Mexican Lasagnita", "description": "Mexican beans, salsa and cheese layered with pasta.", "price": 419, "icon": "🍝" },
+    { "id": "l8", "name": "Pink Sauce Lasagnita", "description": "Creamy pink sauce with veggies and baked cheese.", "price": 389, "icon": "🍝" }
+  ],
+  "sizzlers": [
+    { "id": "sz1", "name": "Exotic Veg Sizzler", "description": "Assorted veggies with herb rice and fries.", "price": 499, "icon": "🔥" },
+    { "id": "sz2", "name": "Paneer Steak Sizzler", "description": "Grilled paneer steaks with barbecue sauce.", "price": 549, "icon": "🔥" },
+    { "id": "sz3", "name": "Chinese Sizzler", "description": "Manchurian, noodles, and fried rice on a sizzler plate.", "price": 479, "icon": "🔥" },
+    { "id": "sz4", "name": "Mexican Sizzler", "description": "Burrito, nachos, and corn on a sizzler plate.", "price": 529, "icon": "🔥" },
+    { "id": "sz5", "name": "Italian Sizzler", "description": "Pasta, garlic bread and grilled vegetables on a hot plate.", "price": 559, "icon": "🔥" },
+    { "id": "sz6", "name": "Tandoori Paneer Sizzler", "description": "Tandoori paneer served with rice, fries and spicy sauce.", "price": 579, "icon": "🔥" },
+    { "id": "sz7", "name": "BBQ Veg Sizzler", "description": "Grilled vegetables with barbecue sauce and potato wedges.", "price": 499, "icon": "🔥" },
+    { "id": "sz8", "name": "Cheese Corn Sizzler", "description": "Cheesy corn patty served with rice and creamy sauce.", "price": 529, "icon": "🔥" }
+  ],
+  "chinese": [
+    { "id": "c1", "name": "Veg Hakka Noodles", "description": "Classic stir-fried noodles with crisp vegetables.", "price": 179, "icon": "🥢" },
+    { "id": "c2", "name": "Veg Manchurian", "description": "Veggie balls in a spicy, tangy gravy.", "price": 199, "icon": "🥢" },
+    { "id": "c3", "name": "Schezwan Fried Rice", "description": "Spicy fried rice with schezwan sauce.", "price": 189, "icon": "🥢" },
+    { "id": "c4", "name": "Spring Rolls", "description": "Crispy fried rolls filled with veggies.", "price": 129, "icon": "🥢" },
+    { "id": "c5", "name": "Chilli Paneer", "description": "Paneer cubes tossed with onion, capsicum and spicy sauce.", "price": 229, "icon": "🥢" },
+    { "id": "c6", "name": "Triple Schezwan Rice", "description": "Fried rice, noodles and Manchurian gravy served together.", "price": 249, "icon": "🥢" },
+    { "id": "c7", "name": "Honey Chilli Potato", "description": "Crispy potato fingers tossed in sweet and spicy sauce.", "price": 169, "icon": "🥢" },
+    { "id": "c8", "name": "Veg Momos", "description": "Steamed dumplings filled with fresh vegetables.", "price": 139, "icon": "🥟" }
+  ],
+  "snacks": [
+    { "id": "sn1", "name": "French Fries", "description": "Classic salted crispy potato fries.", "price": 99, "icon": "🍟" },
+    { "id": "sn2", "name": "Cheese Garlic Bread", "description": "Toasted bread with garlic butter and melted cheese.", "price": 129, "icon": "🍞" },
+    { "id": "sn3", "name": "Onion Rings", "description": "Crunchy battered fried onion rings.", "price": 119, "icon": "🧅" },
+    { "id": "sn4", "name": "Potato Wedges", "description": "Seasoned and baked thick potato wedges.", "price": 109, "icon": "🥔" },
+    { "id": "sn5", "name": "Veg Nuggets", "description": "Crispy vegetable nuggets served with dip.", "price": 129, "icon": "🍘" },
+    { "id": "sn6", "name": "Cheese Balls", "description": "Golden fried cheese balls with creamy filling.", "price": 149, "icon": "🧀" },
+    { "id": "sn7", "name": "Nachos with Salsa", "description": "Crunchy nachos served with fresh tomato salsa.", "price": 159, "icon": "🧆" },
+    { "id": "sn8", "name": "Masala Corn", "description": "Sweet corn tossed with butter, lemon and spices.", "price": 89, "icon": "🌽" }
+  ]
+}
