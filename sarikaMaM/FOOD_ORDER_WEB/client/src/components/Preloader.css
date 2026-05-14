@@ -1,0 +1,130 @@
+.kk-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden;
+}
+
+.kk-preloader--done {
+  display: none;
+}
+
+.kk-preloader__content {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.kk-logo-pulse {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #e63946, #ff4d6d);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 50px;
+  color: white;
+  box-shadow: 0 15px 35px rgba(230, 57, 70, 0.3);
+  animation: pulseLogo 2s infinite ease-in-out;
+}
+
+@keyframes pulseLogo {
+  0% { transform: scale(0.95); box-shadow: 0 5px 15px rgba(230, 57, 70, 0.2); }
+  50% { transform: scale(1.05); box-shadow: 0 20px 40px rgba(230, 57, 70, 0.4); }
+  100% { transform: scale(0.95); box-shadow: 0 5px 15px rgba(230, 57, 70, 0.2); }
+}
+
+.kk-brand-text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1d1d1f;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.kk-tagline-text {
+  font-size: 1rem;
+  color: #e63946;
+  font-weight: 600;
+  margin-top: 5px;
+  opacity: 0.8;
+}
+
+/* Scooter Track */
+.kk-scooter-track {
+  position: absolute;
+  bottom: 20%;
+  width: 100%;
+  height: 2px;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.kk-scooter-track::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, #e63946, #e63946 20px, transparent 20px, transparent 40px);
+  width: 200%;
+  animation: moveTrack 1s linear infinite;
+}
+
+@keyframes moveTrack {
+  from { transform: translateX(0); }
+  to { transform: translateX(-40px); }
+}
+
+.kk-scooter-wrap {
+  position: absolute;
+  bottom: calc(20% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  animation: jump 0.5s infinite ease-in-out;
+}
+
+@keyframes jump {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+.kk-loading-bar-wrap {
+  width: 200px;
+  height: 4px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  margin: 40px auto 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.kk-loading-bar {
+  position: absolute;
+  inset: 0;
+  background: #e63946;
+  width: 0%;
+  animation: fillBar 3.8s linear forwards;
+}
+
+@keyframes fillBar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Transitions */
+.kk-preloader--exit {
+  animation: fadeOutDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeOutDown {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(20px); }
+}

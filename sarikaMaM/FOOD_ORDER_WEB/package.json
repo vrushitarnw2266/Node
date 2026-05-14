@@ -1,0 +1,12 @@
+{
+  "name": "food-order-web",
+  "private": true,
+  "description": "Veggie Toing food order app — run scripts from repo root",
+  "scripts": {
+    "dev": "npm run dev --prefix client",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  }
+}

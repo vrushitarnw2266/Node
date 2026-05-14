@@ -19,6 +19,7 @@ const signup = async (req, res) => {
 
 const login = async (req, res) => {
   try {
+    
     const { username, password } = req.body;
     const user = await User.findOne({ $or: [{ username }, { email: username }] }).select('+password');
     
