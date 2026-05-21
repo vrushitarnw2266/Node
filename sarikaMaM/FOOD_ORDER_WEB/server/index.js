@@ -397,7 +397,7 @@ async function seedVegFoods() {
 // Eagerly connect to MongoDB at module load time.
 // Mongoose buffers all queries until the connection is ready, so routes work correctly.
 mongoose
-  .connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/veg_food_order")
+  .connect(process.env.MONGO_URI || process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/veg_food_order")
   .then(() => seedVegFoods())
   .catch((err) => {
     console.error("MongoDB connection error:", err.message);

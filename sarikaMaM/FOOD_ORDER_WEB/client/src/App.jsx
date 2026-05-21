@@ -15,7 +15,7 @@ import { TermsPage } from "./pages/TermsPage.jsx";
 import { MyBookingsPage } from "./pages/MyBookingsPage.jsx";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000",
+  baseURL: import.meta.env.VITE_API_URL || "",
   withCredentials: true,
 });
 
