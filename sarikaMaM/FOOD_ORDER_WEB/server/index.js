@@ -394,18 +394,23 @@ async function seedVegFoods() {
   }
 }
 
-async function start() {
-  try {
-    await mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/veg_food_order");
-    await seedVegFoods();
-    const port = process.env.PORT || 5000;
-    app.listen(port, () => {
-      console.log(`Server started on http://localhost:${port}`);
-    });
-  } catch (error) {
-    console.error("Server startup failed:", error.message);
-    process.exit(1);
-  }
+// Eagerly connect to MongoDB at module load time.
+// Mongoose buffers all queries until the connection is ready, so routes work correctly.
+mongoose
+  .connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/veg_food_order")
+  .then(() => seedVegFoods())
+  .catch((err) => {
+    console.error("MongoDB connection error:", err.message);
+    if (!process.env.VERCEL) process.exit(1);
+  });
+
+// Only start the HTTP server when running locally (not on Vercel serverless)
+if (!process.env.VERCEL) {
+  const port = process.env.PORT || 5000;
+  app.listen(port, () => {
+    console.log(`Server started on http://localhost:${port}`);
+  });
 }
 
-start();
+// Export app for Vercel serverless function (api/index.js)
+module.exports = app;

@@ -5,4 +5,10 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      // Forward /api/* to the local Express server during development
+      "/api": "http://localhost:5000",
+    },
+  },
 });
