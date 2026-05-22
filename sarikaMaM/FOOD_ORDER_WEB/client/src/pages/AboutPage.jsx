@@ -13,7 +13,7 @@ export function AboutPage() {
               <span className="text-kk-red">Pure Love.</span>
             </h2>
             <p className="text-xl leading-relaxed text-kk-dark/70 mb-10 font-medium">
-              Veggie Toing was born from a simple idea: that vegetarian food should be more than just an option — it should be a celebration of flavor, health, and creativity.
+              My Vaggie was born from a simple idea: that vegetarian food should be more than just an option — it should be a celebration of flavor, health, and creativity.
             </p>
             <div className="flex gap-4">
               <Link className="btn-gradient px-10 py-4 text-lg" to="/order">Explore Menu</Link>

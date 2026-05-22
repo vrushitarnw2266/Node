@@ -2,7 +2,7 @@ export function TermsPage() {
   const sections = [
     {
       title: "1. Acceptance of Terms",
-      content: "By accessing and using Veggie Toing, you agree to be bound by these Terms of Use. If you do not agree, please refrain from using our services."
+      content: "By accessing and using My Vaggie, you agree to be bound by these Terms of Use. If you do not agree, please refrain from using our services."
     },
     {
       title: "2. Ordering & Payments",

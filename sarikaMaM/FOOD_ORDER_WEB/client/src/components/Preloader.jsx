@@ -24,7 +24,7 @@ export function Preloader({ onFinish, durationMs = 3800 }) {
     <div className={`kk-preloader kk-preloader--${phase}`} aria-live="polite" aria-busy="true">
       <div className="kk-preloader__content">
         <div className="kk-logo-pulse">🍲</div>
-        <h1 className="kk-brand-text">Veggie Toing</h1>
+        <h1 className="kk-brand-text">My Vaggie</h1>
         <p className="kk-tagline-text">Fastest Delivery Ever</p>
         
         <div className="kk-loading-bar-wrap">

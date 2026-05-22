@@ -162,6 +162,11 @@ function createToken(userId, role) {
   return jwt.sign({ userId, role }, process.env.JWT_SECRET || "dev_secret", { expiresIn: "7d" });
 }
 
+function cookieOptions() {
+  const prod = process.env.NODE_ENV === "production" || !!process.env.VERCEL;
+  return { httpOnly: true, sameSite: "lax", secure: prod };
+}
+
 async function auth(req, res, next) {
   try {
     const token = req.cookies.token || req.headers.authorization?.replace("Bearer ", "");
@@ -190,7 +195,7 @@ async function authAdmin(req, res, next) {
 }
 
 app.get("/", (_req, res) => {
-  res.json({ message: "Veg Food Order API running" });
+  res.json({ message: "my_vaggie_ API running" });
 });
 
 app.post("/api/auth/register", async (req, res) => {
@@ -207,10 +212,11 @@ app.post("/api/auth/register", async (req, res) => {
     const role = userCount === 0 ? "admin" : "user";
     const user = await User.create({ name, email, passwordHash, role });
     const token = createToken(user._id.toString(), user.role);
-    res.cookie("token", token, { httpOnly: true, sameSite: "lax" });
+    res.cookie("token", token, cookieOptions());
     res.status(201).json({ user: { id: user._id, name: user.name, email: user.email, role: user.role } });
   } catch (error) {
-    res.status(500).json({ message: "Register failed" });
+    console.error("Register failed:", error);
+    res.status(500).json({ message: error.message || "Register failed" });
   }
 });
 
@@ -222,10 +228,11 @@ app.post("/api/auth/login", async (req, res) => {
     const matched = await bcrypt.compare(password, user.passwordHash);
     if (!matched) return res.status(401).json({ message: "Invalid credentials" });
     const token = createToken(user._id.toString(), user.role);
-    res.cookie("token", token, { httpOnly: true, sameSite: "lax" });
+    res.cookie("token", token, cookieOptions());
     res.json({ user: { id: user._id, name: user.name, email: user.email, role: user.role } });
   } catch (error) {
-    res.status(500).json({ message: "Login failed" });
+    console.error("Login failed:", error);
+    res.status(500).json({ message: error.message || "Login failed" });
   }
 });
 
@@ -397,7 +404,7 @@ async function seedVegFoods() {
 // Eagerly connect to MongoDB at module load time.
 // Mongoose buffers all queries until the connection is ready, so routes work correctly.
 mongoose
-  .connect(process.env.MONGO_URI || process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/veg_food_order")
+  .connect(process.env.MONGO_URI || process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/my_vaggie_")
   .then(() => seedVegFoods())
   .catch((err) => {
     console.error("MongoDB connection error:", err.message);

@@ -12,7 +12,7 @@ export function ServicePage() {
         <span className="text-kk-red font-black uppercase tracking-[0.3em] text-sm mb-4 block">Experience Excellence</span>
         <h2 className="text-5xl font-black text-kk-dark mb-6">Our <span className="text-kk-red">Premium</span> Services</h2>
         <p className="text-xl text-kk-dark/60 font-medium leading-relaxed">
-          At Veggie Toing, we've reimagined the vegetarian dining experience, combining culinary mastery with cutting-edge technology.
+          At My Vaggie, we've reimagined the vegetarian dining experience, combining culinary mastery with cutting-edge technology.
         </p>
       </section>
       
@@ -42,7 +42,7 @@ export function ServicePage() {
           />
         </div>
         <div className="md:w-1/2 space-y-6">
-          <h2 className="text-4xl font-black text-kk-dark">Why Choose <span className="text-kk-red">Veggie Toing?</span></h2>
+          <h2 className="text-4xl font-black text-kk-dark">Why Choose <span className="text-kk-red">My Vaggie?</span></h2>
           <div className="space-y-4">
             {[
               "Authentic Kathiyavadi & Punjabi Recipes",

@@ -1,11 +1,13 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "name": "vaddie_toing_food",
-  "buildCommand": "cd client && npm install && npm run build",
+  "name": "my_vaggie_",
+  "buildCommand": "npm install --prefix client && npm run build --prefix client",
   "outputDirectory": "client/dist",
-  "installCommand": "cd server && npm install",
+  "installCommand": "npm install --prefix server",
+  "framework": null,
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api/index.js" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }

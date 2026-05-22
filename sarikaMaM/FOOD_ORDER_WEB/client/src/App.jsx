@@ -154,7 +154,7 @@ function FoodApp() {
         {/* Top Row: Brand and User Actions */}
         <div className="flex items-center justify-between">
           <Link to="/" className="no-underline text-white">
-            <h1 className="m-0 text-2xl font-black tracking-tighter sm:text-3xl">Veggie Toing</h1>
+            <h1 className="m-0 text-2xl font-black tracking-tighter sm:text-3xl">My Vaggie</h1>
           </Link>
           
           <div className="flex items-center gap-3">
@@ -234,7 +234,7 @@ function FoodApp() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Column 1: Brand */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-kk-dark">Veggie Toing</h3>
+            <h3 className="text-xl font-bold text-kk-dark">My Vaggie</h3>
             <p className="text-sm text-kk-dark/60 leading-relaxed">
               Premium vegetarian dining experience delivered to your doorstep. We focus on health, taste, and quality in every bite.
             </p>
@@ -290,7 +290,7 @@ function FoodApp() {
         </div>
 
         <div className="border-t border-kk-dark/5 pt-8 text-center text-xs text-kk-dark/40 font-medium">
-          <p>&copy; 2026 Veggie Toing. Designed for Pure Veg Excellence.</p>
+          <p>&copy; 2026 My Vaggie. Designed for Pure Veg Excellence.</p>
         </div>
       </footer>
     </div>

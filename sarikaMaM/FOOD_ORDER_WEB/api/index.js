@@ -1,3 +1,4 @@
-// Vercel Serverless Function entry point
-// This re-exports the Express app from the server so Vercel can handle requests
-module.exports = require('../server/index.js');
+// Vercel serverless entry — mounts the Express app from /server
+const app = require("../server/index.js");
+
+module.exports = app;
