@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function ServicePage() {
   const services = [
     { title: "Fast Delivery", desc: "Track your order from the kitchen to your door. See prep ETA and live location.", icon: "🛵" },

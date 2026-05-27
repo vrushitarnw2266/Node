@@ -47,22 +47,22 @@ export function AboutPage() {
       {/* Quality Section */}
       <section className="glass-card rounded-[3rem] p-12 md:p-20 premium-shadow bg-gradient-to-br from-kk-dark to-kk-dark/90 text-white border-0 relative overflow-hidden">
         <div className="relative z-10 max-w-2xl">
-          <h2 className="text-4xl font-black mb-8">Our Quality Commitment</h2>
-          <p className="text-lg opacity-80 leading-relaxed mb-10 font-medium">
+          <h2 className="text-4xl font-black mb-8 text-zinc-950">Our Quality Commitment</h2>
+          <p className="text-lg opacity-80 leading-relaxed mb-10 font-medium text-zinc-950">
             We believe that great food starts with great ingredients. That's why we never compromise. Our chefs treat every order with the same care they would for their own family.
           </p>
           <div className="flex flex-wrap gap-8">
             <div>
               <p className="text-4xl font-black text-kk-red mb-1">50+</p>
-              <p className="text-xs uppercase tracking-widest opacity-60 font-bold">Varieties</p>
+              <p className="text-xs uppercase tracking-widest opacity-60 font-bold text-gray-500">Varieties</p>
             </div>
             <div>
               <p className="text-4xl font-black text-kk-red mb-1">100%</p>
-              <p className="text-xs uppercase tracking-widest opacity-60 font-bold">Vegetarian</p>
+              <p className="text-xs uppercase tracking-widest opacity-60 font-bold text-gray-500">Vegetarian</p>
             </div>
             <div>
               <p className="text-4xl font-black text-kk-red mb-1">24/7</p>
-              <p className="text-xs uppercase tracking-widest opacity-60 font-bold">Support</p>
+              <p className="text-xs uppercase tracking-widest opacity-60 font-bold text-gray-500">Support</p>
             </div>
           </div>
         </div>

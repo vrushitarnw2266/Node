@@ -9,6 +9,8 @@ import { BookTablePage } from "./pages/BookTablePage.jsx";
 import { OrderNowPage } from "./pages/OrderNowPage.jsx";
 import { AdminOrdersPage } from "./pages/AdminOrdersPage.jsx";
 import { AdminBookingsPage } from "./pages/AdminBookingsPage";
+import { AdminUsersPage } from "./pages/AdminUsersPage.jsx";
+import { AdminDashboard } from "./pages/AdminDashboard.jsx";
 import { LoginPage } from "./pages/LoginPage.jsx";
 import { RegisterPage } from "./pages/RegisterPage.jsx";
 import { TermsPage } from "./pages/TermsPage.jsx";
@@ -192,8 +194,9 @@ function FoodApp() {
           {user && <Link className={navLink} to="/my-bookings">My Bookings</Link>}
           {user?.role === "admin" && (
             <>
-              <Link className={`${navLink} bg-white/20 font-bold`} to="/admin">Orders</Link>
+              <Link className={`${navLink} bg-white/20 font-bold`} to="/admin">Admin</Link>
               <Link className={`${navLink} bg-white/20 font-bold`} to="/admin/bookings">Reservations</Link>
+              <Link className={`${navLink} bg-white/20 font-bold`} to="/admin/users">Users</Link>
             </>
           )}
         </nav>
@@ -223,8 +226,10 @@ function FoodApp() {
           <Route path="/my-bookings" element={<MyBookingsPage api={api} />} />
           {user?.role === "admin" && (
             <>
-              <Route path="/admin" element={<AdminOrdersPage api={api} />} />
+              <Route path="/admin" element={<AdminDashboard api={api} />} />
+              <Route path="/admin/orders" element={<AdminOrdersPage api={api} />} />
               <Route path="/admin/bookings" element={<AdminBookingsPage api={api} />} />
+              <Route path="/admin/users" element={<AdminUsersPage api={api} />} />
             </>
           )}
         </Routes>
@@ -437,8 +442,8 @@ function OrdersPage({ orders, refreshTracking }) {
                 </div>
                 <div className="flex justify-between mt-2 text-[10px] uppercase font-bold opacity-60 tracking-widest">
                   <span>Placed</span>
-                  <span>Kitchen</span>
-                  <span>En Route</span>
+                  <span>Preparing</span>
+                  <span>Out for Delivery</span>
                   <span>Delivered</span>
                 </div>
               </div>

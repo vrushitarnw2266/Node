@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 export function AdminBookingsPage({ api }) {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [autoRefresh, setAutoRefresh] = useState(true);
+  const [refreshInterval, setRefreshInterval] = useState(5);
 
   async function fetchBookings() {
     try {
@@ -28,13 +30,37 @@ export function AdminBookingsPage({ api }) {
     fetchBookings();
   }, []);
 
+  // Auto-refresh effect
+  useEffect(() => {
+    if (!autoRefresh) return;
+    const interval = setInterval(() => {
+      fetchBookings();
+    }, refreshInterval * 1000);
+    return () => clearInterval(interval);
+  }, [autoRefresh, refreshInterval]);
+
   if (loading) return <div className="p-20 text-center font-bold text-kk-dark/50">Loading Bookings...</div>;
 
   return (
     <section className="animate-fade-in space-y-8">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-4">
         <h2 className="text-3xl font-black text-kk-dark">Table <span className="text-kk-red">Reservations</span></h2>
-        <button onClick={fetchBookings} className="px-4 py-2 bg-kk-dark/5 hover:bg-kk-dark/10 rounded-xl transition-all">🔄 Refresh</button>
+        <div className="flex gap-2 flex-wrap">
+          <button onClick={fetchBookings} className="px-4 py-2 bg-kk-dark/5 hover:bg-kk-dark/10 rounded-xl transition-all font-bold">🔄 Refresh</button>
+          <label className="flex items-center gap-2 px-3 py-2 rounded-lg bg-kk-dark/5 cursor-pointer">
+            <input type="checkbox" checked={autoRefresh} onChange={(e) => setAutoRefresh(e.target.checked)} className="w-4 h-4" />
+            <span className="text-sm font-bold">Auto</span>
+          </label>
+          {autoRefresh && (
+            <select value={refreshInterval} onChange={(e) => setRefreshInterval(Number(e.target.value))} className="px-3 py-2 rounded-lg border bg-white text-sm">
+              <option value={3}>3s</option>
+              <option value={5}>5s</option>
+              <option value={10}>10s</option>
+              <option value={15}>15s</option>
+              <option value={30}>30s</option>
+            </select>
+          )}
+        </div>
       </div>
 
       {bookings.length === 0 ? (

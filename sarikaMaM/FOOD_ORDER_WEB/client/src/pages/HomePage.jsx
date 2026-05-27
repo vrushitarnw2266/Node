@@ -4,6 +4,17 @@ const cardLink =
   "glass-card hover-lift block rounded-3xl p-6 premium-shadow no-underline text-inherit text-center animate-fade-in";
 
 export function HomePage({ categories }) {
+  const specialDishes = [
+    { name: "Punjabi Dish", cat: "Punjabi", img: "https://images.unsplash.com/photo-1645495141857-e49b6b5f8dd5?auto=format&fit=crop&w=800&q=80", desc: "Butter Masala, Dal Makhani & more" },
+    { name: "Kathiyavadi Dish", cat: "Kathiyavadi", img: "https://images.unsplash.com/photo-1633024477408-f8b7f94f53a5?auto=format&fit=crop&w=800&q=80", desc: "Vagharelo Rotlo, Sev Tameta" },
+    { name: "Gujarati Thali", cat: "Gujarati Thali", img: "https://images.unsplash.com/photo-1621996346565-431f63602f41?auto=format&fit=crop&w=800&q=80", desc: "Complete traditional meal" },
+    { name: "South Indian", cat: "South Indian", img: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?auto=format&fit=crop&w=800&q=80", desc: "Authentic Sambar & Rasam" },
+    { name: "Sizzlers", cat: "Sizzlers", img: "https://images.unsplash.com/photo-1626082563009-c0a54f9d2f5f?auto=format&fit=crop&w=800&q=80", desc: "Smoky, Sizzling, Delicious" },
+    { name: "Chinese", cat: "Chinese", img: "https://images.unsplash.com/photo-1609329374519-6c7c09b54d71?auto=format&fit=crop&w=800&q=80", desc: "Noodles & Manchurian" },
+    { name: "Pastas", cat: "Pastas", img: "https://images.unsplash.com/photo-1645112481338-30115ed71597?auto=format&fit=crop&w=800&q=80", desc: "Italian Favorites" },
+    { name: "Biryani", cat: "Biryani", img: "https://images.unsplash.com/photo-1633024477408-f8b7f94f53a5?auto=format&fit=crop&w=800&q=80", desc: "Aromatic Rice Dishes" },
+  ];
+
   return (
     <section className="space-y-12">
       <div className="relative overflow-hidden rounded-[2rem] bg-[#1d1d1f] p-12 text-white premium-shadow">
@@ -15,7 +26,7 @@ export function HomePage({ categories }) {
             Experience the finest collection of pure vegetarian delights. From smoky pizzas to sizzling Chinese, we bring the gourmet kitchen to your doorstep.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link className="btn-gradient px-8 py-3 text-lg" to="/order">Explore Menu</Link>
+            <Link className="btn-gradient px-8 py-3 text-lg no-underline" to="/order">Explore Menu</Link>
             <Link className="rounded-xl border-2 border-white/20 bg-white/10 px-8 py-3 font-semibold text-white no-underline backdrop-blur-md transition hover:bg-white/20" to="/book">Book Table</Link>
           </div>
         </div>
@@ -29,19 +40,10 @@ export function HomePage({ categories }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { name: "Punjabi Dish", cat: "Punjabi", img: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=800&q=80", desc: "Butter Masala, Dal Makhani & more" },
-            { name: "Kathiyavadi Dish", cat: "Kathiyavadi", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80", desc: "Vagharelo Rotlo, Sev Tameta" },
-            { name: "Gujarati Thali", cat: "Gujarati Thali", img: "https://images.unsplash.com/photo-1589302168068-964664d93dc9?auto=format&fit=crop&w=800&q=80", desc: "Complete traditional meal" },
-            { name: "South Thali", cat: "South Indian", img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80", desc: "Authentic Sambar & Rasam" },
-            { name: "Exotic Sizzlers", cat: "Sizzlers", img: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80", desc: "Smoky, Sizzling, Delicious" },
-            { name: "Mexican Tacos", cat: "Tacos", img: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80", desc: "Spicy Paneer & Bean Fusion" },
-            { name: "Classic Lasagna", cat: "Lasagna", img: "https://images.unsplash.com/photo-1619895092538-128341789043?auto=format&fit=crop&w=800&q=80", desc: "Layers of cheesy goodness" },
-            { name: "Special Biryani", cat: "Biryani", img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80", desc: "Aromatic Hyderabadi flavor" }
-          ].map((item) => (
+          {specialDishes.map((item) => (
             <Link 
               key={item.name} 
-              to={`/category/${item.cat}`}
+              to={`/category/${encodeURIComponent(item.cat)}`}
               className="group relative overflow-hidden rounded-[2.5rem] glass-card premium-shadow border-0 no-underline transition-all hover:-translate-y-2"
             >
               <div className="aspect-[4/5] overflow-hidden">
@@ -57,6 +59,49 @@ export function HomePage({ categories }) {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-black text-kk-dark mb-2">Browse All <span className="text-kk-red">Categories</span></h2>
+          <p className="text-kk-dark/60">13 different cuisines to choose from</p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {categories.map((cat) => (
+            <Link 
+              key={cat} 
+              to={`/category/${encodeURIComponent(cat)}`}
+              className="glass-card p-6 rounded-2xl text-center no-underline transition-all hover:bg-kk-red/5 hover:-translate-y-1"
+            >
+              <div className="text-3xl mb-2">
+                {cat.includes('Thali') ? '🍱' : cat === 'Punjabi' ? '🍲' : cat === 'Kathiyavadi' ? '🥣' : cat === 'South Indian' ? '🍛' : cat === 'Pizza' ? '🍕' : cat === 'Burger' ? '🍔' : cat === 'Lasagna' ? '🥘' : cat === 'Tacos' ? '🌮' : cat === 'Sizzlers' ? '🔥' : cat === 'Snacks' ? '🍟' : cat === 'Biryani' ? '🍛' : cat === 'Chinese' ? '🍜' : cat === 'Pastas' ? '🍝' : '🍽️'}
+              </div>
+              <h4 className="m-0 font-bold text-kk-dark">{cat}</h4>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-r from-kk-red/10 to-kk-red-dark/10 rounded-[2rem] p-12 text-center">
+        <h2 className="text-3xl font-black text-kk-dark mb-4">Why Choose My Vaggie?</h2>
+        <div className="grid md:grid-cols-3 gap-8 mt-8">
+          <div className="space-y-2">
+            <div className="text-4xl">🌱</div>
+            <h3 className="font-bold">100% Vegetarian</h3>
+            <p className="text-kk-dark/60">Pure veg kitchen with authentic recipes</p>
+          </div>
+          <div className="space-y-2">
+            <div className="text-4xl">⚡</div>
+            <h3 className="font-bold">Fast Delivery</h3>
+            <p className="text-kk-dark/60">Hot meals delivered in 30-45 minutes</p>
+          </div>
+          <div className="space-y-2">
+            <div className="text-4xl">🏆</div>
+            <h3 className="font-bold">Premium Quality</h3>
+            <p className="text-kk-dark/60">Best ingredients & master chefs</p>
+          </div>
         </div>
       </section>
     </section>
