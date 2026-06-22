@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'Error' %> - TaskMaster</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="error-container">
+    <h1>Oops!</h1>
+    <p><%= message %></p>
+    <a href="/tasks" class="btn btn-primary" style="display: inline-flex; width: auto; padding: 0.75rem 2rem;">Back to Dashboard</a>
+  </div>
+</body>
+</html>

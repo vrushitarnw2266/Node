@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories - TaskMaster</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/navbar', { title: 'Categories' }) %>
+
+  <div class="container">
+    <% if (success) { %>
+      <div class="alert alert-success">
+        <%= success %>
+      </div>
+    <% } %>
+
+    <% if (error) { %>
+      <div class="alert alert-danger">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <div class="dashboard-header">
+      <div class="dashboard-title">
+        <h1>Categories</h1>
+      </div>
+    </div>
+
+    <div class="category-manager">
+      <!-- Create category (Admin Only) -->
+      <% if (user.role === 'admin') { %>
+        <div class="category-card">
+          <h3 style="margin-bottom: 1rem;">Create Category</h3>
+          <form action="/categories/create" method="POST">
+            <div class="form-group">
+              <label for="name">Category Name</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Health, Home" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Create</button>
+          </form>
+        </div>
+      <% } else { %>
+        <div class="category-card">
+          <h3 style="margin-bottom: 0.5rem;">Information</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            Only administrators are allowed to create or delete task categories. As a regular user, you can select these categories when setting up tasks.
+          </p>
+        </div>
+      <% } %>
+
+      <!-- Categories List -->
+      <div class="category-card">
+        <h3 style="margin-bottom: 1rem;">Existing Categories</h3>
+        <% if (categories.length === 0) { %>
+          <p style="color: var(--text-secondary);">No categories created yet.</p>
+        <% } else { %>
+          <ul class="category-list-items">
+            <% categories.forEach(cat => { %>
+              <li class="category-item">
+                <span><%= cat.name %></span>
+                <% if (user.role === 'admin') { %>
+                  <form action="/categories/delete/<%= cat._id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this category?');" style="display: inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                  </form>
+                <% } %>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

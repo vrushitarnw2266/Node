@@ -1,0 +1,39 @@
+<header>
+  <div class="navbar">
+    <a href="/" class="brand">
+      <span>Task</span>Master
+    </a>
+    <ul class="nav-links">
+      <% if (user) { %>
+        <li>
+          <a href="/tasks" class="<%= (typeof viewTitle !== 'undefined' && viewTitle === 'My Tasks' && !showAll) ? 'active' : '' %>">
+            My Tasks
+          </a>
+        </li>
+        
+        <% if (user.role === 'admin') { %>
+          <li>
+            <a href="/tasks?all=true" class="<%= (typeof viewTitle !== 'undefined' && viewTitle === 'All User Tasks' || (typeof showAll !== 'undefined' && showAll)) ? 'active' : '' %>">
+              All User Tasks
+            </a>
+          </li>
+        <% } %>
+        
+        <li>
+          <a href="/categories" class="<%= (typeof title !== 'undefined' && title === 'Categories') ? 'active' : '' %>">
+            Categories
+          </a>
+        </li>
+        
+        <li class="user-tag">
+          <%= user.username %> 
+          <span class="role-badge role-<%= user.role %>"><%= user.role %></span>
+        </li>
+        <li><a href="/logout" class="logout-btn">Logout</a></li>
+      <% } else { %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+      <% } %>
+    </ul>
+  </div>
+</header>

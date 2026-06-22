@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= viewTitle %> - TaskMaster</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+    <% if (success) { %>
+      <div class="alert alert-success">
+        <%= success %>
+      </div>
+    <% } %>
+
+    <% if (error) { %>
+      <div class="alert alert-danger">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <div class="dashboard-header">
+      <div class="dashboard-title">
+        <h1><%= viewTitle %></h1>
+      </div>
+      <div class="dashboard-actions">
+        <% if (user.role === 'admin') { %>
+          <div class="view-toggle">
+            <a href="/tasks" class="view-toggle-btn <%= !showAll ? 'active' : '' %>">My Tasks</a>
+            <a href="/tasks?all=true" class="view-toggle-btn <%= showAll ? 'active' : '' %>">All Tasks</a>
+          </div>
+        <% } %>
+        <a href="/tasks/create" class="btn btn-primary btn-sm">+ Add Task</a>
+      </div>
+    </div>
+
+    <div class="tasks-grid">
+      <% if (tasks.length === 0) { %>
+        <div class="empty-state">
+          <h3>No tasks found</h3>
+          <p>Get started by creating your first task right now.</p>
+          <a href="/tasks/create" class="btn btn-primary">Create First Task</a>
+        </div>
+      <% } else { %>
+        <% tasks.forEach(task => { %>
+          <%- include('taskItem', { task: task }) %>
+        <% }) %>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
